@@ -1,0 +1,11 @@
+spring:
+  profiles:
+    active: native
+  application:
+    name: gui
+  cloud:
+    config:
+      uri: http://localhost:8888
+      username: root
+      password: admin_password
+      fail-fast: true

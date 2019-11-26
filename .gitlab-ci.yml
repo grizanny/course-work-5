@@ -1,0 +1,18 @@
+image: docker:latest
+services:
+  - docker:dind
+
+include:
+  - template: Code-Quality.gitlab-ci.yml
+
+stages:
+  - build
+  - test
+
+maven-build:
+  image: maven:3-jdk-8
+  stage: build
+  script: "mvn package -B -DskipTests"
+  artifacts:
+    paths:
+      - target/*.jar
